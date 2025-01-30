@@ -26,9 +26,9 @@ function getval() {
     local param="${1}"
 
     if bashio::config.exists "server.$param" ; then
-    	rawurlencode "$(bashio::config "server.$param")"
+        rawurlencode "$(bashio::config "server.$param")"
     else
-    	rawurlencode "${PARAMS[$param]}"
+        rawurlencode "${PARAMS[$param]}"
     fi
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "Snapcast",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "init": false,
   "stage": "experimental",
   "slug": "snapcast",
@@ -8,12 +8,12 @@
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "services",
   "boot": "auto",
-  "url": "https://github.com/EvTheFuture/hassio-addon-snapcast",
+  "url": "https://github.com/cravl-dev/hassio-addon-snapcast",
   "webui": "http://[HOST]:[PORT:1780]/",
   "audio": true,
   "ingress": true,
   "ingress_port": 1780,
-  "panel_icon": "mdi:music",
+  "panel_icon": "mdi:speaker-multiple",
   "panel_admin": false,
   "options": {
     "server": {
@@ -60,5 +60,5 @@
     }
   },
   "host_network": true,
-  "image": "evthefuture/hassio-addon-snapcast-{arch}"
+  "image": "cravl-dev/hassio-addon-snapcast-{arch}"
 }
