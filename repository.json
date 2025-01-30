@@ -1,0 +1,5 @@
+{
+  "name": "Snapcast addon for Home Assistant OS",
+  "url": "https://github.com/cravl-dev/hassio-addon-snapcast",
+  "maintainer": "Cameron Ryder"
+}
