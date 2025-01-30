@@ -34,6 +34,8 @@ function getval() {
 
 declare -a options
 
+STREAMS=''
+
 # If Snapcast is disabled, use a fake sleep process
 if ! bashio::config.true 'server.enable'; then
     bashio::log.info 'Snapcast server not enabled in config...'
@@ -64,9 +66,11 @@ if bashio::config.true 'server.enable_stream_librespot' ; then
     STREAMS="source = librespot:///usr/bin/librespot?name=$(getval 'librespot_name')&devicename=$(getval 'librespot_device_name')&bitrate=$(getval 'librespot_bitrate')&volume=$(getval 'librespot_initial_volume')&normalize=$(getval 'librespot_normalize')&disable_audio_cache=$(getval 'librespot_disable_audio_cache')${extra_params}${params}"
 fi
 
-echo "[stream]" > "$config_file"
-echo "$STREAMS" >> "$config_file"
-echo "" >> "$config_file"
+tee "${config_file}" &> /dev/null <<EOF
+[stream]
+${STREAMS:-''}
+
+EOF
 
 # activate web server?
 if bashio::config.true 'server.enable_web' ; then
